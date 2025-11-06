@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Left Side */}
         <div>
           <h3 className="text-xl font-bold text-primary mb-2">
-            Sohaib Aboosbua<span className="text-accent">.</span>
+            Sohaib <span className="text-accent">Aboosbua</span>
           </h3>
           <p className="text-textMuted text-sm">
             Building creative, fast, and reliable digital experiences.
@@ -26,7 +26,7 @@ export default function Footer() {
             <FaGithub />
           </a>
           <a
-            href="https://www.linkedin.com/in/sohaib-najib-aboosbua"
+            href="https://www.linkedin.com/in/sohaib-najib-aboosbua-66a29732b/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-accent transition-colors duration-300"

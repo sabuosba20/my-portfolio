@@ -7,6 +7,7 @@ import Skills from './components/Skills'
 import NavBar from './components/navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import Avatar3D from './components/Avatar3D'
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
     <Projects />
     <Contact />    
        <Footer />
+       <Avatar3D />
        <ScrollToTop />
 
 

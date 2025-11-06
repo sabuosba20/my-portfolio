@@ -33,7 +33,7 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center h-16">
         {/* Logo */}
         <h1 className="text-2xl font-bold text-primary cursor-pointer hover:text-accent transition-colors duration-300">
-          Sohaib<span className="text-accent">.</span>
+          Sohaib<span className="text-accent"> Aboosbua</span>
         </h1>
 
         {/* Desktop Navigation */}

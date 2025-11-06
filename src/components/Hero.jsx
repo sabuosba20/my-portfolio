@@ -14,7 +14,7 @@ export default function Hero() {
 
       {/* Name */}
       <h1 className="text-5xl md:text-6xl font-extrabold text-primary mb-4">
-        Sohaib Aboosbua
+        Sohaib <span className="text-accent"> Aboosbua</span>
       </h1>
 
       {/* Role */}

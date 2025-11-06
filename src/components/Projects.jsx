@@ -64,14 +64,14 @@ export default function Projects() {
                 <FaGithub className="text-lg" /> View Code
               </a>
 
-              <a
+              {/* <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 border border-accent text-accent rounded-md text-sm font-medium hover:bg-accent hover:text-secondary transition-all duration-300"
               >
                 <FaExternalLinkAlt className="text-sm" /> Live Demo
-              </a>
+              </a> */}
             </div>
           </div>
         ))}
