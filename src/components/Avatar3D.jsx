@@ -18,7 +18,8 @@ function AvatarModel() {
 
   scene.rotation.y = 0;
 
-  return <primitive object={scene} scale={1.5} position={[0, -2.4, 0]} />;
+  return <primitive object={scene} scale={window.innerWidth < 640 ? 1.2 : 1.5} position={[0, -2.4, 0]} />;
+
 }
 
 export default function Avatar3D() {
@@ -60,15 +61,18 @@ export default function Avatar3D() {
           }}
           exit={{ opacity: 0, y: 40, scale: 0.9 }}
           transition={{ duration: 0.8, ease: [0.25, 1, 0.3, 1] }}
-          className={`fixed z-50 w-52 h-52 pointer-events-none ${
+          className={`fixed z-50 w-52 h-52 pointer-events-none w-36 h-36 sm:w-44 md:w-52 md:h-52 ${
             isBottom ? "bottom-0 left-2" : "bottom-0 right-2"
           }`}
         >
           {/* Avatar */}
           <Canvas
-            camera={{ position: [0, 1.5, 3], fov: 18 }}
-            style={{ background: "transparent" }}
-          >
+  camera={{
+    position: [0, 1.5, window.innerWidth < 640 ? 4 : 3],
+    fov: window.innerWidth < 640 ? 25 : 18,
+  }}
+  style={{ background: "transparent" }}
+>
             <ambientLight intensity={1.6} />
             <directionalLight position={[5, 5, 5]} intensity={1.2} />
             <AvatarModel />
