@@ -1,4 +1,4 @@
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaFilePdf } from "react-icons/fa";
 
 
 export default function Hero() {
@@ -24,7 +24,7 @@ export default function Hero() {
       </p>
 
       {/* CTA buttons */}
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-4">
         <a
           href="#projects"
           className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg"
@@ -36,6 +36,14 @@ export default function Hero() {
           className="px-8 py-3 border-2 border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-secondary transition-all duration-300"
         >
           Contact Me
+        </a>
+        <a
+          href="/Sohaib-Aboosbua-CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+        >
+          <FaFilePdf className="text-lg" /> View / Download CV
         </a>
       </div>
 
