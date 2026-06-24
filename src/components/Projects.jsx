@@ -21,6 +21,18 @@ const projects = [
       "A full-featured system managing food delivery, takeaway, and dine-in operations — supporting vendors, customers, couriers, admins, and managers.",
     link: "https://github.com/sabuosba20/NomNom-oms.git",
   },
+  {
+    title: "Disaster Relief Logistics Management",
+    description:
+      "A logistics management system designed to coordinate disaster relief operations, resources, and distribution workflows.",
+    link: "https://github.com/adel8282/Disaster-Relief-Logistics-Management-.git",
+  },
+  {
+    title: "Furniture Supply Chain BCD",
+    description:
+      "A blockchain-focused furniture supply chain system for tracking products, transactions, and supply chain transparency.",
+    link: "https://github.com/sabuosba20/Furniture_supply_chain_BCD.git",
+  },
 ];
 
 export default function Projects() {
