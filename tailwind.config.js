@@ -1,22 +1,29 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        primary: "#2563EB",
-        secondary: "#1E293B",
-        accent: "#FACC15",
-        textLight: "#F8FAFC",
-        textMuted: "#94A3B8",        
+        canvas: "var(--canvas)",
+        ink: "var(--ink)",
+        muted: "var(--muted)",
+        surface: "var(--surface)",
+        soft: "var(--soft)",
+        line: "var(--line)",
+        accent: "var(--accent)",
       },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
+        sans: ['"Manrope Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ['"JetBrains Mono Variable"', "ui-monospace", "monospace"],
+      },
+      borderRadius: {
+        panel: "1.5rem",
+      },
+      zIndex: {
+        base: "1",
+        nav: "40",
       },
     },
   },
   plugins: [],
-}
+};

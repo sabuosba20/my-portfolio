@@ -1,64 +1,36 @@
-import { FaCode, FaLaptopCode, FaLightbulb } from "react-icons/fa";
+import { Code, Database, PenNib, PlugsConnected } from "@phosphor-icons/react";
 import Reveal from "./reveal";
+
+const strengths = [
+  { title: "Interfaces", detail: "Responsive React experiences with clear hierarchy and careful interaction.", icon: PenNib },
+  { title: "Application logic", detail: "Maintainable APIs and workflows built around real user needs.", icon: Code },
+  { title: "Data", detail: "Relational and document data shaped for reliable products.", icon: Database },
+  { title: "Systems", detail: "Connected services that make complex operations easier to understand.", icon: PlugsConnected },
+];
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="py-24 bg-secondary text-textLight flex flex-col items-center px-6 md:px-16"
-    >
-      {/* Heading */}
-      <Reveal>
-        <h2 className="text-4xl font-bold mb-8 text-primary border-b-4 border-accent pb-2">
-          About Me
-        </h2>
-      </Reveal>
-
-      {/* Description */}
-      <Reveal delay={0.2}>
-        <p className="max-w-3xl text-lg text-textMuted leading-relaxed text-center mb-12">
-          Hello! I am <span className="text-accent font-semibold">Sohaib Aboosbua</span>,
-          a passionate <span className="text-primary">Full Stack Developer</span> and
-          Computer Science student based in Malaysia 🇲🇾. I love designing and building
-          clean, dynamic web experiences that balance performance, aesthetics, and usability.
-        </p>
-      </Reveal>
-      <br /><br />
-      <Reveal delay={0.4}>
-        <p className="max-w-3xl text-lg text-textMuted leading-relaxed text-center mb-12">
-          When I am not coding, I am learning new technologies, experimenting with design ideas,
-          or collaborating on creative projects that push my boundaries. My goal is to build
-          digital solutions that not only work — but *feel* great to use.
-        </p>
-      </Reveal>
-
-      {/* Highlights / Icons */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl">
-        {/* Card 1 */}
-        <div className="bg-secondary border border-gray-700 hover:border-primary rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
-          <FaCode className="text-4xl text-accent mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2 text-primary">Front-End Focus</h3>
-          <p className="text-textMuted text-sm">
-            Skilled in React, Tailwind CSS, and responsive design for clean and modern UI.
+    <section id="about" className="section-shell">
+      <div className="mx-auto max-w-[1400px]">
+        <Reveal className="max-w-4xl">
+          <h2 className="section-title">Software should feel considered from the first click to the last request.</h2>
+          <p className="section-copy">
+            I am Sohaib Aboosbua, a computer science student and full-stack developer. I like turning operational complexity into focused, dependable products.
           </p>
-        </div>
-
-        {/* Card 2 */}
-        <div className="bg-secondary border border-gray-700 hover:border-primary rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
-          <FaLaptopCode className="text-4xl text-accent mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2 text-primary">Back-End Logic</h3>
-          <p className="text-textMuted text-sm">
-            Experienced with Node.js, Express, and MongoDB to create powerful APIs and apps.
-          </p>
-        </div>
-
-        {/* Card 3 */}
-        <div className="bg-secondary border border-gray-700 hover:border-primary rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
-          <FaLightbulb className="text-4xl text-accent mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2 text-primary">Creative Vision</h3>
-          <p className="text-textMuted text-sm">
-            I enjoy solving real-world problems with a mix of design thinking and technology.
-          </p>
+        </Reveal>
+        <div className="mt-16 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:ml-[14%]">
+          {strengths.map((strength, index) => {
+            const Icon = strength.icon;
+            return (
+              <Reveal key={strength.title} delay={index * 0.06} className="capability-row">
+                <Icon size={28} weight="duotone" className="text-accent" />
+                <div>
+                  <h3 className="text-xl font-bold tracking-tight">{strength.title}</h3>
+                  <p className="mt-2 max-w-md leading-relaxed text-muted">{strength.detail}</p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

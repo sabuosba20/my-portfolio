@@ -1,92 +1,112 @@
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import Reveal from "./reveal.jsx";
+import { ArrowUpRight, GithubLogo } from "@phosphor-icons/react";
+import Reveal from "./reveal";
 
-
-const projects = [
+const featuredProjects = [
   {
-    title: "APU Café Management System",
-    description:
-      "A Python-based system for Asia Pacific University to manage lecturers, students, and trainers efficiently.",
-    link: "https://github.com/sabuosba20/apu-cafe-ms.git",
-  },
-  {
-    title: "Sheba Hotel Management System",
-    description:
-      "A C-based hotel management system built for Sheba Hotel to handle bookings, customer data, and room availability.",
-    link: "https://github.com/as3q/sheba-hms.git",
+    title: "Furniture Supply Chain BCD",
+    description: "A blockchain-based traceability system that follows furniture products, transactions, and ownership across the supply chain.",
+    image: "/images/project-supply-chain.webp",
+    alt: "Furniture materials and finished products connected across a dark studio landscape",
+    stack: ["Blockchain", "Supply chain", "Full stack"],
+    link: "https://github.com/sabuosba20/Furniture_supply_chain_BCD",
   },
   {
     title: "NomNom Ordering Platform",
-    description:
-      "A full-featured system managing food delivery, takeaway, and dine-in operations — supporting vendors, customers, couriers, admins, and managers.",
-    link: "https://github.com/sabuosba20/NomNom-oms.git",
-  },
-  {
-    title: "Disaster Relief Logistics Management",
-    description:
-      "A logistics management system designed to coordinate disaster relief operations, resources, and distribution workflows.",
-    link: "https://github.com/adel8282/Disaster-Relief-Logistics-Management-.git",
-  },
-  {
-    title: "Furniture Supply Chain BCD",
-    description:
-      "A blockchain-focused furniture supply chain system for tracking products, transactions, and supply chain transparency.",
-    link: "https://github.com/sabuosba20/Furniture_supply_chain_BCD.git",
+    description: "A multi-role ordering platform for delivery, takeaway, and dine-in operations across customers, vendors, couriers, and managers.",
+    image: "/images/project-hospitality.webp",
+    alt: "Food ordering and hospitality objects connected by an orange cable",
+    stack: ["Ordering", "Operations", "Multi-role"],
+    link: "https://github.com/sabuosba20/NomNom-oms",
   },
 ];
 
+const moreProjects = [
+  {
+    title: "APU Cafe Management System",
+    description: "A Python system for coordinating lecturers, students, trainers, and day-to-day cafe operations.",
+    stack: "Python",
+    link: "https://github.com/sabuosba20/apu-cafe-ms",
+  },
+  {
+    title: "Disaster Relief Logistics",
+    description: "A logistics tool for coordinating resources and distribution workflows during relief operations.",
+    stack: "Operations",
+    link: "https://github.com/adel8282/Disaster-Relief-Logistics-Management-",
+  },
+  {
+    title: "Sheba Hotel Management",
+    description: "A C-based system for bookings, customer records, and room availability.",
+    stack: "C",
+    link: "https://github.com/as3q/sheba-hms",
+  },
+];
+
+function ProjectLink({ href, label = "View repository" }) {
+  return (
+    <a href={href} target="_blank" rel="noreferrer" className="project-link">
+      <GithubLogo size={19} weight="fill" />
+      {label}
+      <ArrowUpRight size={17} weight="bold" />
+    </a>
+  );
+}
+
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      className="py-24 bg-secondary text-textLight flex flex-col items-center px-6 md:px-16"
-    >
-      {/* Heading */}
-      <Reveal>
-        <h2 className="text-4xl font-bold mb-12 text-primary border-b-4 border-accent pb-2">
-          Projects
-        </h2>
-      </Reveal>
+    <section id="projects" className="section-shell">
+      <div className="mx-auto max-w-[1400px]">
+        <Reveal className="max-w-4xl">
+          <h2 className="section-title">Selected systems, built around real workflows.</h2>
+          <p className="section-copy">Projects spanning traceability, hospitality, ordering, and operational software.</p>
+        </Reveal>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="bg-gray-900 border border-gray-700 hover:border-primary rounded-xl p-6 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
-          >
-            {/* Project Title */}
-            <h3 className="text-2xl font-semibold mb-3 text-accent">
-              {project.title}
-            </h3>
+        <div className="mt-14 space-y-6">
+          {featuredProjects.map((project, index) => (
+            <Reveal key={project.title} delay={index * 0.08}>
+              <article className="group grid overflow-hidden rounded-panel border border-line bg-surface lg:grid-cols-[1.25fr_0.75fr]">
+                <div className="relative min-h-[320px] overflow-hidden md:min-h-[480px]">
+                  <img
+                    src={project.image}
+                    alt={project.alt}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                    width="1440"
+                    height="960"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex flex-col justify-between p-6 md:p-10 lg:p-12">
+                  <div>
+                    <div className="flex flex-wrap gap-2">
+                      {project.stack.map((item) => <span key={item} className="tech-label">{item}</span>)}
+                    </div>
+                    <h3 className="mt-7 text-3xl font-extrabold leading-tight tracking-[-0.04em] md:text-4xl">{project.title}</h3>
+                    <p className="mt-4 max-w-lg leading-relaxed text-muted">{project.description}</p>
+                  </div>
+                  <div className="mt-10"><ProjectLink href={project.link} /></div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
 
-            {/* Project Description */}
-            <p className="text-textMuted mb-6 text-sm leading-relaxed">
-              {project.description}
-            </p>
-
-            {/* Buttons */}
-            <div className="flex items-center gap-4">
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-md text-sm font-medium hover:bg-blue-600 transition-all duration-300 shadow-md"
-              >
-                <FaGithub className="text-lg" /> View Code
-              </a>
-
-              {/* <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 border border-accent text-accent rounded-md text-sm font-medium hover:bg-accent hover:text-secondary transition-all duration-300"
-              >
-                <FaExternalLinkAlt className="text-sm" /> Live Demo
-              </a> */}
-            </div>
-          </div>
-        ))}
+        <div className="mt-6 grid gap-6 md:grid-cols-12">
+          {moreProjects.map((project, index) => (
+            <Reveal
+              key={project.title}
+              delay={index * 0.06}
+              className={index === 0 ? "md:col-span-5" : index === 1 ? "md:col-span-7" : "md:col-span-12 lg:ml-[24%]"}
+            >
+              <article className="small-project flex h-full min-h-72 flex-col justify-between rounded-panel border border-line bg-surface p-6 md:p-8">
+                <div>
+                  <span className="font-mono text-xs font-semibold text-accent">{project.stack}</span>
+                  <h3 className="mt-5 max-w-md text-2xl font-extrabold tracking-[-0.035em]">{project.title}</h3>
+                  <p className="mt-3 max-w-lg leading-relaxed text-muted">{project.description}</p>
+                </div>
+                <div className="mt-8"><ProjectLink href={project.link} label="GitHub" /></div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

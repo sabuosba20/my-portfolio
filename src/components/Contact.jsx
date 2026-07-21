@@ -1,75 +1,45 @@
-import { FaEnvelope, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { ArrowUpRight, EnvelopeSimple, GithubLogo, InstagramLogo, LinkedinLogo } from "@phosphor-icons/react";
 import Reveal from "./reveal";
+
+const socials = [
+  { name: "GitHub", href: "https://github.com/sabuosba20", icon: GithubLogo },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/sohaib-najib-aboosbua-66a29732b/", icon: LinkedinLogo },
+  { name: "Instagram", href: "https://www.instagram.com/sohaib.abuosba", icon: InstagramLogo },
+];
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="py-24 bg-secondary text-textLight flex flex-col items-center justify-center px-6 md:px-16"
-    >
-      {/* Heading */}
-      <Reveal>
-        <h2 className="text-4xl font-bold mb-6 text-primary border-b-4 border-accent pb-2">
-          Contact Me
-        </h2>
+    <section id="contact" className="px-4 py-16 md:px-8 md:py-24">
+      <Reveal className="mx-auto max-w-[1400px]">
+        <div className="contact-panel rounded-panel p-6 text-[#f4f1ea] md:p-12 lg:p-16">
+          <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#f07943]">Start a conversation</p>
+              <h2 className="mt-5 max-w-[13ch] text-4xl font-extrabold leading-[0.98] tracking-[-0.05em] md:text-6xl">
+                Have a useful problem to solve?
+              </h2>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#c8c4bc]">
+                I am open to collaborations, internships, and software projects with a clear purpose.
+              </p>
+            </div>
+            <a href="mailto:sohaib@abuosba.com" className="button button-on-dark">
+              Email me <EnvelopeSimple size={19} weight="bold" />
+            </a>
+          </div>
+          <div className="mt-14 flex flex-wrap gap-3 border-t border-white/15 pt-7">
+            {socials.map((social) => {
+              const SocialIcon = social.icon;
+              return (
+                <a key={social.name} href={social.href} target="_blank" rel="noreferrer" className="social-link">
+                  <SocialIcon size={19} weight="fill" />
+                  {social.name}
+                  <ArrowUpRight size={15} weight="bold" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
       </Reveal>
-
-      {/* Description */}
-      <Reveal>
-        <p className="text-lg text-textMuted max-w-2xl text-center mb-12 leading-relaxed">
-          I would love to hear from you! Whether you have a question, collaboration idea,
-          or just want to say hi — feel free to reach out. Let's connect and create
-          something amazing together!
-        </p>
-      </Reveal>
-
-      {/* Buttons */}
-      <div className="flex flex-col sm:flex-row gap-6 text-lg items-center">
-        {/* Email */}
-        <div className="flex flex-col items-center gap-2">
-          <a
-            href="mailto:sohaib@abuosba.com"
-            className="flex items-center gap-2 px-6 py-3 bg-primary hover:bg-blue-600 rounded-lg text-white transition-all duration-300 shadow-md hover:shadow-lg"
-          >
-            <FaEnvelope className="text-xl" /> Email Me
-          </a>
-          {/* Visible email address */}
-          <p className="text-center text-sm text-textMuted mt-1 select-text">sohaib@abuosba.com</p>
-        </div>
-
-        {/* LinkedIn */}
-        <div>
-        <a
-          href="https://www.linkedin.com/in/sohaib-najib-aboosbua-66a29732b/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-6 py-3 bg-[#0077b5] hover:bg-[#0a66c2] rounded-lg text-white transition-all duration-300 shadow-md hover:shadow-lg"
-        >
-          <FaLinkedin className="text-xl" /> LinkedIn
-        </a>
-        {/* Visible email address */}
-        <p className="text-center text-sm text-textMuted mt-1 select-text">Sohaib Najib Aboosbua </p>
-        </div>
-
-        {/* Instagram */}
-        <div>
-        <a
-          href="https://www.instagram.com/sohaib.abuosba"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:opacity-90 rounded-lg text-white transition-all duration-300 shadow-md hover:shadow-lg"
-        >
-          <FaInstagram className="text-xl" /> Instagram
-        </a>
-        <p className="text-center text-sm text-textMuted mt-1 select-text">sohaib.abuosba</p>
-        </div>
-
-      </div>
-
-      {/* Footer Note */}
-      <p className="mt-12 text-sm text-textMuted">
-        © {new Date().getFullYear()} Sohaib Aboosbua — All rights reserved.
-      </p>
     </section>
   );
 }
